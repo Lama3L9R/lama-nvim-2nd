@@ -1,0 +1,5 @@
+{
+    "suggest.completionItemKindLabels": {},
+    "coc.preferences.formatOnSave": false,
+    "coc.preferences.bracketEnterImprove": true
+}
