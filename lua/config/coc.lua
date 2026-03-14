@@ -1,4 +1,3 @@
-
 vim.opt.updatetime = 300
 
 local utils = require('utils')
@@ -10,11 +9,21 @@ function _G.check_back_space()
     return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
 end
 
+local ap = require("nvim-autopairs")
+
+function _G.accept_when_possible()
+    if vim.fn["coc#pum#visible"]() == 1 then
+        return vim.fn["coc#pum#confirm"]()
+    end
+
+    return ap.autopairs_cr()
+end
+
 -- Go next
 utils.bindi("<TAB>", 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', "Coc: Next or Tab", { expr = true, replace_keycodes = false })
 
 -- Accept current
-utils.bindi("<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], "Coc: Confirm completion", { expr = true, replace_keycodes = false })
+utils.bindi("<cr>", "v:lua._G.accept_when_possible()", "Coc: Confirm completion", { expr = true, replace_keycodes = false })
 
 -- Cancel completion on ESC
 utils.bindi("<ESC>", [[coc#pum#visible() ? coc#pum#cancel() : "\<ESC>"]], "Coc: Cancel completion (aka close completion ui)", { expr = true })

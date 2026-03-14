@@ -1,5 +1,6 @@
 {
     "suggest.completionItemKindLabels": {},
     "coc.preferences.formatOnSave": false,
-    "coc.preferences.bracketEnterImprove": true
+    "coc.preferences.bracketEnterImprove": true,
+    "rust-analyzer.server.path": "/usr/lib/rustup/bin/rust-analyzer"
 }
