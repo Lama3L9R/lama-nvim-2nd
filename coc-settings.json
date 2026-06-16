@@ -1,6 +1,20 @@
 {
-    "suggest.completionItemKindLabels": {},
-    "coc.preferences.formatOnSave": false,
-    "coc.preferences.bracketEnterImprove": true,
-    "rust-analyzer.server.path": "/usr/lib/rustup/bin/rust-analyzer"
+  "suggest.completionItemKindLabels": {},
+  "suggest.insertMode": "insert",
+  "suggest.enablePreview": true,
+  "signature.enable": true,
+  "signature.target": "float",
+  "signature.hideOnTextChange": false,
+  "coc.preferences.formatOnSave": false,
+  "coc.preferences.bracketEnterImprove": true,
+  "rust-analyzer.server.path": "/usr/lib/rustup/bin/rust-analyzer",
+  "javascript.suggest.completeFunctionCalls": false,
+  "typescript.suggest.completeFunctionCalls": false,
+  "Lua.diagnostics.enable": false,
+  "languageserver": {
+    "nix": {
+      "command": "nixd",
+      "filetypes": ["nix"]
+    }
+  }
 }
