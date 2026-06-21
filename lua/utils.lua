@@ -52,7 +52,7 @@ function M.bindterm(key, act, desc, opts)
 end
 
 function M.command(cmd, act, opt)
-    vim.api.nvim_create_user_command(cmd, act, M.mergeTable({}, opt))
+    vim.api.nvim_create_user_command(cmd, act, M.mergeTable({ nargs = "*" }, opt))
 end
 
 function M.listen(event, act, desc, opt)
